@@ -30,12 +30,13 @@ const person = {
   ]
 };
 function getEducationHistory(person) {
-  let [ education ] = person;
-  let degree = education[degree];
-  let major = education[major];
-  let university = education[university][name];
-  return "My name is ${person.firstName}, and I graduated from ${university} with a $[degree] in ${major}"
+  let { education } = person;
+  let degree = education.degree;
+  let major = education.major;
+  let university = education.university.name;
+  return `My name is ${person.firstName}, and I graduated from ${university} with a ${degree} in ${major}`
 }
+console.log(getEducationHistory(person))
 //SyntaxError: Unexpected token '}' --->remove period at end of line 41
 function logAllFriendsNamesAndAges(person) {
   let [ friends ] = person;
@@ -74,4 +75,6 @@ function addHeightProperty(person, height) {
 function ageUpPerson1Year(person) {
   person[age]++ >= person[age];
 }
+
+
 //SyntaxError: Invalid left-hand side in assignment ---> remove plus sign and replace with greater than operator
