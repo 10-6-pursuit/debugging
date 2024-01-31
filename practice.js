@@ -46,12 +46,16 @@ const person = {
   
 
   function logAllFriendsNamesAndAges(person) {
-    let [ friends ] = person;
+    let { friends } = person;
   
-    for (const friend in friends) {
-      console.log(friend[name] + " " + friend[age]);
+    for (let friend of friends) {
+    
+    
+      console.log(friend.name + " " + friend.age);
     }
   }
+
+ logAllFriendsNamesAndAges(person)
   
   function addAreaCodeToPhoneNums(person, areaCode) {
     let [ phone ] = person;
