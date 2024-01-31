@@ -95,10 +95,12 @@ console.log(addAreaCodeToPhoneNums(person, "415"))
 
 
   function ageUpPerson1Year(person) {
-    person[age]++ >= person[age];
+
+    person.age ++
+
+    return person
   }
 
-  console.log(ageUpPerson1Year(person))
 
   //SyntaxError: Invalid left-hand side in assignment ---> remove plus sign and replace with greater than operator
 
