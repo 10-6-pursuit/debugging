@@ -49,23 +49,24 @@ const person = {
     let { friends } = person;
   
     for (let friend of friends) {
-    
-    
       console.log(friend.name + " " + friend.age);
     }
   }
 
- logAllFriendsNamesAndAges(person)
+
   
   function addAreaCodeToPhoneNums(person, areaCode) {
-    let [ phone ] = person;
+    let { contact } = person;
   
-    for (const key of phone) {
+    for (let key in contact.phone) {
 //Unexpected identifier 'areaCode' ----> missing plus sign "+" before areaCode
-      phone.key = "(" + areaCode + ") " + phone.key;
+      debugger;
+      contact.phone[key] = "(" + areaCode + ") " + contact.phone[key];
     }
-    return phone;
+    return contact.phone;
   }
+
+console.log(addAreaCodeToPhoneNums(person, "415"))
   
   function logFullAddress(person) {
     const [ address ] = person;
