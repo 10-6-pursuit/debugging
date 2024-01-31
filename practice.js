@@ -69,14 +69,15 @@ const person = {
 console.log(addAreaCodeToPhoneNums(person, "415"))
   
   function logFullAddress(person) {
-    const [ address ] = person;
+    const  { address } = person;
     let singleAddressStr = "";
     
-    for (const key in address) {
-      singleAddressStr = address.key + (key === "country" ? "" : ", ");
+    for (let key in address) {
+      singleAddressStr += address[key] + (key === "country" ? "" : ", ");
     }
     console.log(singleAddressStr);
   }
+  logFullAddress(person)
   
   function logIfCanDrive(person) {
     if (person[age] === "true") {
