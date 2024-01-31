@@ -47,13 +47,15 @@ function logAllFriendsNamesAndAges(person) {
 logAllFriendsNamesAndAges(person);
 
 function addAreaCodeToPhoneNums(person, areaCode) {
-  let [ phone ] = person;
-  for (const key of phone) {
+  let { contact } = person;
+  for (let key in contact.phone) {
 //Unexpected identifier 'areaCode' ----> missing plus sign "+" before areaCode
-    phone.key = "(" + areaCode + ") " + phone.key;
+    contact.phone[key] = "(" + areaCode + ") " + contact.phone[key];
   }
-  return phone;
+  return contact.phone;
 }
+
+console.log(addAreaCodeToPhoneNums(person, "10045"))
 function logFullAddress(person) {
   const [ address ] = person;
   let singleAddressStr = "";
