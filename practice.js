@@ -32,55 +32,75 @@ const person = {
   
   
   function getEducationHistory(person) {
-    let [ education ] = person;
+    let { education } = person;
   
-    let degree = education[degree];
-    let major = education[major];
-    let university = education[university][name];
+    let degree = education.degree;
+    let major = education.major;
+    let university = education.university.name;
   
-    return "My name is ${person.firstName}, and I graduated from ${university} with a $[degree] in ${major}".
+    return `My name is ${person.firstName}, and I graduated from ${university} with a ${degree} in ${major}`
   }
+
+  console.log(getEducationHistory(person))
+  //SyntaxError: Unexpected token '}' --->remove period at end of line 41
   
+
   function logAllFriendsNamesAndAges(person) {
-    let [ friends ] = person;
+    let { friends } = person;
   
-    for (const friend in friends) {
-      console.log(friend[name] + " " + friend[age]);
+    for (let friend of friends) {
+      console.log(friend.name + " " + friend.age);
     }
   }
+
+
   
   function addAreaCodeToPhoneNums(person, areaCode) {
-    let [ phone ] = person;
+    let { contact } = person;
   
-    for (const key of phone) {
-      phone.key = "(" areaCode + ") " + phone.key;
+    for (let key in contact.phone) {
+//Unexpected identifier 'areaCode' ----> missing plus sign "+" before areaCode
+      debugger;
+      contact.phone[key] = "(" + areaCode + ") " + contact.phone[key];
     }
-    return phone;
+    return contact.phone;
   }
+
+console.log(addAreaCodeToPhoneNums(person, "415"))
   
   function logFullAddress(person) {
-    const [ address ] = person;
+    const  { address } = person;
     let singleAddressStr = "";
     
-    for (const key in address) {
-      singleAddressStr = address.key + (key === "country" ? "" : ", ");
+    for (let key in address) {
+      singleAddressStr += address[key] + (key === "country" ? "" : ", ");
     }
     console.log(singleAddressStr);
   }
+  logFullAddress(person)
   
   function logIfCanDrive(person) {
-    if (person[age] === "true") {
+    if (person.age >= 18) {
       console.log("This person is of the legal age to drive.");
-    } else if {
+    } else {
+  //Unexpected token '{' ----> delete "if" keyword
       console.log("This person cannot legally drive.")
     }
   }
   
   function addHeightProperty(person, height) {
-    person[height] = height;
+    person["height"] = height;
     return person;
   }
-  
+
+
   function ageUpPerson1Year(person) {
-    person[age]++ += person[age];
+
+    person.age ++
+
+    return person
   }
+
+
+  //SyntaxError: Invalid left-hand side in assignment ---> remove plus sign and replace with greater than operator
+
