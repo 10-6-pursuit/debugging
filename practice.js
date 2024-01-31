@@ -39,11 +39,13 @@ function getEducationHistory(person) {
 console.log(getEducationHistory(person))
 //SyntaxError: Unexpected token '}' --->remove period at end of line 41
 function logAllFriendsNamesAndAges(person) {
-  let [ friends ] = person;
-  for (const friend in friends) {
-    console.log(friend[name] + " " + friend[age]);
+  let { friends } = person;
+  for (let friend of friends) {
+    console.log(friend.name + " " + friend.age);
   }
 }
+logAllFriendsNamesAndAges(person);
+
 function addAreaCodeToPhoneNums(person, areaCode) {
   let [ phone ] = person;
   for (const key of phone) {
