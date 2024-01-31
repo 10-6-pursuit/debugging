@@ -38,9 +38,11 @@ const person = {
     let major = education[major];
     let university = education[university][name];
   
-    return "My name is ${person.firstName}, and I graduated from ${university} with a $[degree] in ${major}".
+    return "My name is ${person.firstName}, and I graduated from ${university} with a $[degree] in ${major}"
   }
+  //SyntaxError: Unexpected token '}' --->remove period at end of line 41
   
+
   function logAllFriendsNamesAndAges(person) {
     let [ friends ] = person;
   
@@ -53,7 +55,8 @@ const person = {
     let [ phone ] = person;
   
     for (const key of phone) {
-      phone.key = "(" areaCode + ") " + phone.key;
+//Unexpected identifier 'areaCode' ----> missing plus sign "+" before areaCode
+      phone.key = "(" + areaCode + ") " + phone.key;
     }
     return phone;
   }
@@ -71,7 +74,8 @@ const person = {
   function logIfCanDrive(person) {
     if (person[age] === "true") {
       console.log("This person is of the legal age to drive.");
-    } else if {
+    } else {
+  //Unexpected token '{' ----> delete "if" keyword
       console.log("This person cannot legally drive.")
     }
   }
@@ -82,5 +86,6 @@ const person = {
   }
   
   function ageUpPerson1Year(person) {
-    person[age]++ += person[age];
+    person[age]++ >= person[age];
   }
+  //SyntaxError: Invalid left-hand side in assignment ---> remove plus sign and replace with greater than operator
