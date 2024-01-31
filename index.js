@@ -110,10 +110,9 @@ findMax([1,3,2])
 function sumOfAllOddElements(arr) {
     let sum = 0;
 
-    for (let i = 0; i < arr.length; i++) {
-        debugger;
-        if (arr[i] % 2 !== 0) {
-            sum += arr[i];
+    for (let i = 1; i < arr.length -1; i++) {
+        if (sum % 2 === 0) {
+            sum += i;
         }
     }
     return sum
