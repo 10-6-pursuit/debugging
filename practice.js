@@ -87,14 +87,18 @@ console.log(addAreaCodeToPhoneNums(person, "415"))
       console.log("This person cannot legally drive.")
     }
   }
-  logIfCanDrive(person)
+  
   function addHeightProperty(person, height) {
-    person[height] = height;
+    person["height"] = height;
     return person;
   }
-  
+
+
   function ageUpPerson1Year(person) {
     person[age]++ >= person[age];
   }
+
+  console.log(ageUpPerson1Year(person))
+
   //SyntaxError: Invalid left-hand side in assignment ---> remove plus sign and replace with greater than operator
 
