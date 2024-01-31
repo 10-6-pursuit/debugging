@@ -56,22 +56,29 @@ function addAreaCodeToPhoneNums(person, areaCode) {
 }
 
 console.log(addAreaCodeToPhoneNums(person, "10045"))
+
 function logFullAddress(person) {
-  const [ address ] = person;
+  const { address } = person;
   let singleAddressStr = "";
-  for (const key in address) {
-    singleAddressStr = address.key + (key === "country" ? "" : ", ");
+  for (let key in address) {
+    singleAddressStr += address[key] + (key === "country" ? "" : ", ");
   }
   console.log(singleAddressStr);
 }
+
+logFullAddress(person);
+
 function logIfCanDrive(person) {
-  if (person[age] === "true") {
+  if (person.age >= 18 ) {
     console.log("This person is of the legal age to drive.");
   } else {
 //Unexpected token '{' ----> delete "if" keyword
     console.log("This person cannot legally drive.")
   }
 }
+
+logIfCanDrive(person);
+
 function addHeightProperty(person, height) {
   person[height] = height;
   return person;
